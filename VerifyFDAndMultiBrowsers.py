@@ -15,31 +15,36 @@ import os
 
 # This test verifies that the Future Info Toolbar buttons are fully functional
 
-driverName = []
-#driverName.append(webdriver.Ie())
-driverName.append(webdriver.Chrome())
-driverName.append(webdriver.Firefox())
-driverName.append(webdriver.Safari())
-driverName.append(webdriver.PhantomJS())
+# driverName = []
+# driverName.append(webdriver.Chrome())
+# driverName.append(webdriver.Firefox())
+# driverName.append(webdriver.Safari())
+#driverName.append(webdriver.PhantomJS())
 
+desired_caps = {}
+desired_caps['platform'] = 'ANY'
+desired_caps['browserName'] = 'firefox'
 
+# For remote control browsercloseclosedc
 caps = []
 caps.append(webdriver.DesiredCapabilities.CHROME)
+caps.append(webdriver.DesiredCapabilities.SAFARI)
+# caps.append(desired_caps)
 caps.append(webdriver.DesiredCapabilities.FIREFOX)
-caps.append(webdriver.DesiredCapabilities.FIREFOX)
-class Verify_Idaho_Links(unittest.TestCase):
 
+class Verify_Idaho_Links(unittest.TestCase):
 
     def setUp(self):
         pass
 
+
     def test_Future_Info_Button_Is_Active(self):
-        # for cap in caps:
-        #     self.driver = webdriver.Remote(command_executor = 'http://localhost:4444/wd/hub', desired_capabilities=cap)
-
-        for browser in driverName:
-
-            self.driver = browser
+        for cap in caps:
+            self.driver = webdriver.Remote(command_executor = 'http://localhost:4444/wd/hub', desired_capabilities=cap)
+        # for browser in driverName:
+        #     print browser
+            #self.driver = browser
+            print cap
             driver = self.driver
             url = 'http://hb.511.idaho.gov/'
             driver.set_window_size(1800, 1100)
@@ -60,10 +65,9 @@ class Verify_Idaho_Links(unittest.TestCase):
 
             driver.quit()
 
+
     def tearDown(self):
-        #print self.driver.title
         print "Test Completed"
-       # self.driver.quit()
 
 
 if __name__ == '__main__':
