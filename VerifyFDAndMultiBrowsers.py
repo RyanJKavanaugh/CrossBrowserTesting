@@ -10,6 +10,10 @@ from selenium.webdriver.common.by import By
 import time
 import unittest
 import os
+from pyvirtualdisplay import Display
+
+display = Display(visible=0, size=(800, 800))
+display.start()
 
 # /Users/ryankavanaugh/Desktop/AMZUTests
 
@@ -21,9 +25,9 @@ import os
 # driverName.append(webdriver.Safari())
 #driverName.append(webdriver.PhantomJS())
 
-desired_caps = {}
-desired_caps['platform'] = 'ANY'
-desired_caps['browserName'] = 'firefox'
+# desired_caps = {}
+# desired_caps['platform'] = 'ANY'
+# desired_caps['browserName'] = 'firefox'
 
 # For remote control browsercloseclosedc
 caps = []
