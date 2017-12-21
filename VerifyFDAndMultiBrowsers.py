@@ -44,7 +44,7 @@ class Verify_Idaho_Links(unittest.TestCase):
 
     def test_Future_Info_Button_Is_Active(self):
         for cap in caps:
-            self.driver = webdriver.Remote(command_executor='http://10.4.71.61:4444/wd/hub', desired_capabilities=cap)
+            self.driver = webdriver.Remote('http://10.4.71.61:4444/wd/hub', desired_capabilities=cap)
             #self.driver = webdriver.Remote(command_executor = 'http://localhost:4444/wd/hub', desired_capabilities=cap)
         # for browser in driverName:
         #     print browser
